@@ -1,7 +1,12 @@
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.HashSet;
 
-public class Pagamentos extends ArrayList<Pagamento> {
+public class Pagamentos {
+
+    ArrayList<Pagamento> pagamentos = new ArrayList<Pagamento>();
+
     private double valorPago;
 
     public double getValorPago() {
@@ -10,7 +15,7 @@ public class Pagamentos extends ArrayList<Pagamento> {
     // Metodos pagamento
     public ArrayList<Pagamento> pagamentosAntesDe(Calendar data) {
         ArrayList<Pagamento> pagamentosFiltrados = new ArrayList<Pagamento>();
-        for (Pagamento pagamento : this) {
+        for (Pagamento pagamento : this.pagamentos) {
             if (pagamento.getData().before(data)) {
                 pagamentosFiltrados.add(pagamento);
             }
@@ -19,7 +24,7 @@ public class Pagamentos extends ArrayList<Pagamento> {
     }
     public ArrayList<Pagamento> pagamentosComValorMaiorQue(double valorMinimo) {
         ArrayList<Pagamento> pagamentosFiltrados = new ArrayList<Pagamento>();
-        for (Pagamento pagamento : this) {
+        for (Pagamento pagamento : this.pagamentos) {
             if (pagamento.getValor() > valorMinimo) {
                 pagamentosFiltrados.add(pagamento);
             }
@@ -28,7 +33,7 @@ public class Pagamentos extends ArrayList<Pagamento> {
     }
     public ArrayList<Pagamento> pagamentosDo(String cnpjPagador) {
         ArrayList<Pagamento> pagamentosFiltrados = new ArrayList<Pagamento>();
-        for (Pagamento pagamento : this) {
+        for (Pagamento pagamento : this.pagamentos) {
             if (pagamento.getCnpjPagador().equals(cnpjPagador)) {
                 pagamentosFiltrados.add(pagamento);
             }
@@ -47,8 +52,12 @@ public class Pagamentos extends ArrayList<Pagamento> {
     }
 
     public void registra(Pagamento pagamento) {
-        this.add(pagamento);
+        this.pagamentos.add(pagamento);
         this.paga(pagamento.getValor());
+    }
+
+    public boolean foiRealizado(Pagamento pagamento){
+        return pagamentos.contains(pagamento);
     }
 
 }
