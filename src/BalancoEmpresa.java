@@ -17,7 +17,9 @@ public class BalancoEmpresa {
 
         if (divida != null) {
             Pagamento pagamento = new Pagamento();
-            divida.getPagamentos().registra(pagamento);
+            // divida.getPagamentos().registra(pagamento);
+            // se torna
+            divida.registra(pagamento);
 
         }
     }

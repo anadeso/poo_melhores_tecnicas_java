@@ -4,7 +4,11 @@ public class Cnpj {
 
     private String valor;
 
-    public Cnpj(String valor) {
+    /*public Cnpj(String valor) {
+        this.valor = valor;
+    }*/
+
+    public void setValor(String valor) {
         this.valor = valor;
     }
 
@@ -53,5 +57,10 @@ public class Cnpj {
     @Override
     public int hashCode() {
         return Objects.hash(getValor());
+    }
+
+    @Override
+    public String toString() {
+        return this.valor;
     }
 }
