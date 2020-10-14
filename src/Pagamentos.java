@@ -1,11 +1,9 @@
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.HashSet;
+import javax.print.Doc;
+import java.util.*;
 
-public class Pagamentos {
+public class Pagamentos implements Iterable<Pagamento> {
 
-    ArrayList<Pagamento> pagamentos = new ArrayList<Pagamento>();
+    Collection<Pagamento> pagamentos = new ArrayList<Pagamento>();
 
     private double valorPago;
 
@@ -13,28 +11,28 @@ public class Pagamentos {
         return this.valorPago;
     }
     // Metodos pagamento
-    public ArrayList<Pagamento> pagamentosAntesDe(Calendar data) {
+    public Collection<Pagamento> pagamentosAntesDe(Calendar data) {
         ArrayList<Pagamento> pagamentosFiltrados = new ArrayList<Pagamento>();
-        for (Pagamento pagamento : this.pagamentos) {
+        for (Pagamento pagamento : this) {
             if (pagamento.getData().before(data)) {
                 pagamentosFiltrados.add(pagamento);
             }
         }
         return pagamentosFiltrados;
     }
-    public ArrayList<Pagamento> pagamentosComValorMaiorQue(double valorMinimo) {
-        ArrayList<Pagamento> pagamentosFiltrados = new ArrayList<Pagamento>();
-        for (Pagamento pagamento : this.pagamentos) {
+    public Collection<Pagamento> pagamentosComValorMaiorQue(double valorMinimo) {
+        Collection<Pagamento> pagamentosFiltrados = new ArrayList<Pagamento>();
+        for (Pagamento pagamento : this) {
             if (pagamento.getValor() > valorMinimo) {
                 pagamentosFiltrados.add(pagamento);
             }
         }
         return pagamentosFiltrados;
     }
-    public ArrayList<Pagamento> pagamentosDo(String cnpjPagador) {
-        ArrayList<Pagamento> pagamentosFiltrados = new ArrayList<Pagamento>();
+    public Collection<Pagamento> pagamentosDo(Documento documentoPagador) {
+        Collection<Pagamento> pagamentosFiltrados = new ArrayList<Pagamento>();
         for (Pagamento pagamento : this.pagamentos) {
-            if (pagamento.getCnpjPagador().equals(cnpjPagador)) {
+            if (pagamento.getDocumentoPagador().equals(documentoPagador)) {
                 pagamentosFiltrados.add(pagamento);
             }
         }
@@ -60,4 +58,9 @@ public class Pagamentos {
         return pagamentos.contains(pagamento);
     }
 
+
+    @Override
+    public Iterator<Pagamento> iterator() {
+        return this.pagamentos.iterator();
+    }
 }

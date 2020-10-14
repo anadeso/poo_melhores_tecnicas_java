@@ -1,19 +1,20 @@
 import java.util.HashMap;
-import java.util.HashSet;
 
 public class BalancoEmpresa {
 
-    private HashMap<Cnpj, Divida> dividas = new HashMap<Cnpj, Divida>();
+    private HashMap<Documento, Divida> dividas = new HashMap<Documento, Divida>();
 
     public void registrarDivida(Divida divida){
 
-        dividas.put(divida.getCnpjCredor(), divida);
+        if (divida.getDocumentoCredor() != null){
+            dividas.put(divida.getDocumentoCredor(), divida);
+        }
 
     }
 
-    public void pagoDivida(Cnpj cnpjCredor, Pagamento pagamentos){
+    public void pagoDivida(Documento documentoCredor, Pagamento pagamentos){
 
-        Divida divida = dividas.get(cnpjCredor);
+        Divida divida = dividas.get(documentoCredor);
 
         if (divida != null) {
             Pagamento pagamento = new Pagamento();

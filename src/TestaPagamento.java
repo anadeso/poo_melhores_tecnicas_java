@@ -15,6 +15,9 @@ public class TestaPagamento {
 
         System.out.println("Valor pago: " +pagamentos.getValorPago());
 
+        for(Pagamento pagamento : pagamentos){
+            System.out.println(pagamento.getValor());
+        }
     }
 
 }

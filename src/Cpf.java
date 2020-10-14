@@ -1,19 +1,34 @@
+import javax.print.Doc;
 import java.util.Objects;
 
-public class Cnpj implements Documento{
+public class Cpf implements Documento {
 
-    private String valor;
+    private final String valor;
 
-    public Cnpj(String valor) {
-        this.valor = valor;
-    }
-
-    public void setValor(String valor) {
+    public Cpf(String valor) {
         this.valor = valor;
     }
 
     public String getValor() {
         return valor;
+    }
+
+    @Override
+    public String toString() {
+        return this.valor;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Cpf)) return false;
+        Cpf cpf = (Cpf) o;
+        return getValor().equals(cpf.getValor());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getValor());
     }
 
     // Metodo CNPJ
@@ -46,21 +61,4 @@ public class Cnpj implements Documento{
         return 3;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Cnpj)) return false;
-        Cnpj cnpj = (Cnpj) o;
-        return Objects.equals(getValor(), cnpj.getValor());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getValor());
-    }
-
-    @Override
-    public String toString() {
-        return this.valor;
-    }
 }
