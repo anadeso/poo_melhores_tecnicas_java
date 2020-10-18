@@ -143,13 +143,9 @@ No dia a dia nos deparamos com aquele pedaço de código, arquivo gigante, difí
     }
 ------------
 
-Muitas vezes é motivo de piada, mas por qual motivo ele continua presente no dia a dia?
-
 Boas práticas de OO servem para diminuir os efeitos negativos de um código mal estruturado. Facilitam manutenção e adaptação á medida que precisamos adicionar funcionalidades ou alterar o comportamento do sistema.
 
-
-
-
+Desenvolvemos um sistema de controle financeiro de uma empresa onde aplicamos as melhores técnicas de orientação a objetos.
 
 
 
