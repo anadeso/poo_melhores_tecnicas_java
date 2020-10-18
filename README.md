@@ -145,7 +145,12 @@ No dia a dia nos deparamos com aquele pedaço de código, arquivo gigante, difí
 
 Boas práticas de OO servem para diminuir os efeitos negativos de um código mal estruturado. Facilitam manutenção e adaptação á medida que precisamos adicionar funcionalidades ou alterar o comportamento do sistema.
 
-Desenvolvemos um sistema de controle financeiro de uma empresa onde aplicamos as melhores técnicas de orientação a objetos.
+Desenvolvemos um sistema de controle financeiro de uma empresa onde aplicamos boas práticas em Java
+    - Quando não usar Herança
+    - Menor acoplamento com polimorfismo 
+    - Mais flexibilidade com injeção de dependência
+    - Melhoria na coesão de uma classe 
+    - O princípio Tell don`t Ask 
 
 
 
