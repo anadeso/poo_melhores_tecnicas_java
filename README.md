@@ -1,8 +1,5 @@
 ### Programação Orientada a Objetos em Java: uma abordagem simples para entendimento e aplicação no dia a dia.
 ------------
-<p align="center">
-  <img  src="https://i.imgur.com/7cTB4or.png">
-</p>
 
 # 📌 Sobre
 
